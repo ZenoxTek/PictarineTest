@@ -16,7 +16,8 @@ extension Resource {
             "query": query,
             "language": Locale.preferredLanguages[0]
             ]
-        return Resource<MoviesDTO>(url: url, parameters: parameters)
+        let headers: [String: String] = ["Authorization": "Bearer \(ApiConstants.bearerToken)"]
+        return Resource<MoviesDTO>(url: url, parameters: parameters, headers: headers)
     }
 }
 

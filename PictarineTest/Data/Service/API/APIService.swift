@@ -14,6 +14,12 @@ import Combine
 final class APIService: APIServiceType {
     private let session: URLSession
 
+    let jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
+        return decoder
+    }()
+    
     init(session: URLSession = URLSession(configuration: URLSessionConfiguration.ephemeral)) {
         self.session = session
     }
@@ -33,13 +39,12 @@ final class APIService: APIServiceType {
                 guard let httpResponse = response as? HTTPURLResponse else {
                     return .fail(APIError.invalidResponse)
                 }
-
                 guard 200..<300 ~= httpResponse.statusCode else {
                     return .fail(APIError.dataLoadingError(statusCode: httpResponse.statusCode, data: data))
                 }
                 return .just(data)
             }
-            .decode(type: T.self, decoder: JSONDecoder())
+            .decode(type: T.self, decoder: jsonDecoder)
             .eraseToAnyPublisher()
     }
 }

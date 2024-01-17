@@ -13,7 +13,8 @@ import Foundation
 struct Resource<T: Decodable> {
     let url: URL
     let parameters: [String: CustomStringConvertible]
-
+    let headers: [String: String]?
+    
     /// Generates a URLRequest with the specified URL and parameters.
     var request: URLRequest? {
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
@@ -25,12 +26,21 @@ struct Resource<T: Decodable> {
         guard let url = components.url else {
             return nil
         }
-        return URLRequest(url: url)
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET" // Adjust the HTTP method as needed
+
+        if let headers = headers {
+            for (key, value) in headers {
+                request.addValue(value, forHTTPHeaderField: key)
+            }
+        }
+        return request
     }
 
     /// Initializes a new network resource with a URL and optional parameters.
-    init(url: URL, parameters: [String: CustomStringConvertible] = [:]) {
+    init(url: URL, parameters: [String: CustomStringConvertible] = [:], headers: [String: String]? = nil) {
         self.url = url
         self.parameters = parameters
+        self.headers = headers
     }
 }

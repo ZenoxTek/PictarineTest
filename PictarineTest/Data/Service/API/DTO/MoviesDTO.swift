@@ -9,5 +9,5 @@ import Foundation
 
 struct MoviesDTO: Decodable {
     
-    var items: [MovieDTO]
+    var results: [MovieDTO]
 }

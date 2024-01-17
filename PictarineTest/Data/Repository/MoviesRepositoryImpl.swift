@@ -16,7 +16,7 @@ struct MoviesRepositoryImpl: MoviesRepository {
         return apiService
             .load(Resource<MoviesDTO>.movies(query: query))
             .map({ data in
-                return .success(data.items.map { $0.toMovie() })
+                return .success(data.results.map { $0.toMovie() })
             })
             .catch { error -> AnyPublisher<Result<[Movie], Error>, Never> in .just(.failure(error)) }
             .subscribe(on: Scheduler.backgroundWorkScheduler)
