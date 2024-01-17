@@ -51,6 +51,10 @@
 		B2F8DD212B57EE4300FAF4D8 /* PictarineTest */ = {
 			isa = PBXGroup;
 			children = (
+				B2F8DD332B57EE6E00FAF4D8 /* Presentation */,
+				B2F8DD322B57EE6600FAF4D8 /* Data */,
+				B2F8DD312B57EE6100FAF4D8 /* Domain */,
+				B2F8DD302B57EE5700FAF4D8 /* Core */,
 				B2F8DD222B57EE4300FAF4D8 /* PictarineTestApp.swift */,
 				B2F8DD242B57EE4300FAF4D8 /* ContentView.swift */,
 				B2F8DD262B57EE4400FAF4D8 /* Assets.xcassets */,
@@ -65,6 +69,114 @@
 				B2F8DD292B57EE4400FAF4D8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		B2F8DD302B57EE5700FAF4D8 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				B2F8DD3D2B57EFCE00FAF4D8 /* Extension */,
+				B2F8DD3C2B57EF9500FAF4D8 /* Common */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		B2F8DD312B57EE6100FAF4D8 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B2F8DD362B57EE9400FAF4D8 /* UseCase */,
+				B2F8DD352B57EE8C00FAF4D8 /* Repository */,
+				B2F8DD342B57EE8700FAF4D8 /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B2F8DD322B57EE6600FAF4D8 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B2F8DD382B57EEDB00FAF4D8 /* Service */,
+				B2F8DD372B57EEC300FAF4D8 /* Repository */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		B2F8DD332B57EE6E00FAF4D8 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		B2F8DD342B57EE8700FAF4D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		B2F8DD352B57EE8C00FAF4D8 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B2F8DD362B57EE9400FAF4D8 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		B2F8DD372B57EEC300FAF4D8 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		B2F8DD382B57EEDB00FAF4D8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				B2F8DD3B2B57EF4700FAF4D8 /* DataSource */,
+				B2F8DD392B57EEE600FAF4D8 /* API */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		B2F8DD392B57EEE600FAF4D8 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				B2F8DD3A2B57EEF700FAF4D8 /* DTO */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		B2F8DD3A2B57EEF700FAF4D8 /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		B2F8DD3B2B57EF4700FAF4D8 /* DataSource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataSource;
+			sourceTree = "<group>";
+		};
+		B2F8DD3C2B57EF9500FAF4D8 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		B2F8DD3D2B57EFCE00FAF4D8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -1,0 +1,60 @@
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+/*.hmap
+/*.ipa
+/*.xccheckout
+/*.xcworkspace
+/xcuserdata/
+/*.xcuserstate
+/project.xcworkspace/
+/*.pbxuser
+/*.mode1v3
+/*.mode2v3
+/*.perspective
+*.xcuserstate
+
+# Swift Package Manager
+/*.swiftpm
+
+# Carthage
+/Carthage
+
+# CocoaPods
+/Pods
+*.xcconfig
+
+# fastlane
+/fastlane/report.xml
+/fastlane/Preview.html
+/fastlane/screenshots
+/fastlane/test_output
+
+# Objective-C
+*.h
+*.m
+
+# Compiled Source
+*.r
+*.pch
+
+# Generated files
+*.xcodeproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/xcuserdata/
+
+# Playgrounds
+.playground
+
+# Swift Package Manager
+/.build/
+
+# Swift Package Manager for macOS
+/.swiftpm/xcode/
+
+# Cocoapods
+Pods/
+
