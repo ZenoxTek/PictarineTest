@@ -16,36 +16,7 @@ struct MovieDetailsView: View {
     var body: some View {
         
         VStack {
-            Group {
-                if let url = movie.posterURL {
-                    AsyncImage(url: url as URL) { phase in
-                        switch phase {
-                        case .empty:
-                            ProgressView()
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: 300, maxHeight: 225)
-                                .padding(.bottom)
-                        case .failure:
-                            Image(systemName: "movieclapper.fill")
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .frame(maxWidth: 300, maxHeight: 225)
-                                .padding(.bottom)
-                        @unknown default:
-                            EmptyView()
-                        }
-                    }
-                } else {
-                    Image(systemName: "movieclapper.fill")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .frame(maxWidth: 300, maxHeight: 225)
-                        .padding(.bottom)
-                }
-            }
+            MovieAsyncImage(imageURL: movie.posterURL, imageType: .detail)
             
             VStack {
                 Text(movie.title)

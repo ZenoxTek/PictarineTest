@@ -12,24 +12,7 @@ struct MovieCell: View {
     
     var body: some View {
         HStack {
-            AsyncImage(url: movie.posterURL) { phase in
-                switch phase {
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 100, height: 100)
-                case .failure(_):
-                    Text("Failed")
-                        .font(.caption2)
-                        .bold()
-                case .empty:
-                    ProgressView()
-                                .progressViewStyle(CircularProgressViewStyle(tint: .gray))
-                @unknown default:
-                    Text("Failed")
-                }
-            }
+            MovieAsyncImage(imageURL: movie.posterURL, imageType: .small)
             
             VStack(alignment: .leading) {
                 Text(movie.title)
