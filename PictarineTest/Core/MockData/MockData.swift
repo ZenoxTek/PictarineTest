@@ -14,6 +14,7 @@ struct MockData {
             title: "Sample Movie",
             overview: "This is a sample movie overview.",
             posterPath: "sample_poster.jpg",
+            popularity: 22.34,
             voteAverage: 8.5,
             releaseDate: "2022-01-01"
         )
@@ -28,7 +29,8 @@ struct MockData {
                 title: "Movie \(i)",
                 overview: "Overview for Movie \(i)",
                 posterPath: "poster\(i).jpg",
-                voteAverage: Float(i) * 0.5,
+                popularity: Double(i) * 3.23,
+                voteAverage: Double(i) * 0.5,
                 releaseDate: "2022-01-0\(i)"
             )
             movies.append(movie)

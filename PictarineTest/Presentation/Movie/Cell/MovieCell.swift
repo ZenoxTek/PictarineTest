@@ -11,14 +11,49 @@ struct MovieCell: View {
     let movie: Movie
     
     var body: some View {
-        VStack(alignment: .leading) {
-            Text("Test Cell")
-                .font(.largeTitle)
-                .bold()
-            Text(movie.title)
-                .font(.title)
-                .bold()
-            .foregroundStyle(.primary)
+        HStack {
+            AsyncImage(url: movie.posterURL) { phase in
+                switch phase {
+                case .success(let image):
+                    image
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                case .failure(_):
+                    Text("Failed")
+                        .font(.caption2)
+                        .bold()
+                case .empty:
+                    ProgressView()
+                                .progressViewStyle(CircularProgressViewStyle(tint: .gray))
+                @unknown default:
+                    Text("Failed")
+                }
+            }
+            
+            VStack(alignment: .leading) {
+                Text(movie.title)
+                    .font(.title)
+                    .bold()
+                HStack {
+                    Text(movie.retrieveYearDate())
+                        .font(.caption)
+                        .bold()
+                    .foregroundStyle(.primary)
+                    
+                    Text("|")
+                    
+                    Text("\(String(format: "%.2f", movie.popularity)) %")
+                }
+                
+                HStack {
+                    
+                    Image(systemName: "star.fill")
+                        .foregroundStyle(.yellow)
+                    
+                    Text("\(String(format: "%.2f", movie.voteAverage)) / 10")
+                }
+            }
         }
     }
 }

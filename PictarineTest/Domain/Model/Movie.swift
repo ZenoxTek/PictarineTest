@@ -15,8 +15,23 @@ struct Movie: Identifiable {
     var posterURL: URL? {
         posterPath.map { URL(string: "https://image.tmdb.org/t/p/w400/\($0)")! }
     }
-    let voteAverage: Float
+    let popularity: Double
+    let voteAverage: Double
     let releaseDate: String?
+    
+    func retrieveYearDate() -> String {
+        guard let date = releaseDate else {
+            return ""
+        }
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        
+        if let date = dateFormatter.date(from: date) {
+            let calendar = Calendar.current
+            return "\(calendar.component(.year, from: date))"
+        }
+        return ""
+    }
 }
 
 extension Movie: Equatable {

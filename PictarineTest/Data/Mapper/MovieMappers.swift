@@ -14,6 +14,7 @@ extension MovieDTO {
                      title: self.title,
                      overview: self.overview,
                      posterPath: self.posterPath,
+                     popularity: self.popularity,
                      voteAverage: self.voteAverage,
                      releaseDate: self.releaseDate)
     }

@@ -16,7 +16,9 @@ final class SearchMoviesViewModel: ObservableObject {
     @Published var movies: [Movie] = []
     @Published var errorMessage = ""
     @Published var hasError = false
-    @Published var search: String = "Test"
+    @Published var search: String = ""
+    @Published var hasPresentedMovieDetail = false
+    @Published var selectedMovie: Movie?
     
     private var cancellables = Set<AnyCancellable>()
     

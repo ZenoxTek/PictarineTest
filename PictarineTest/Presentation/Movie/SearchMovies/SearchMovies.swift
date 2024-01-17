@@ -11,11 +11,36 @@ struct SearchMovies: View {
     
     @StateObject var viewModel = SearchMoviesViewModel()
     
+    private var crossOverlay: some View {
+        Button {
+            viewModel.hasPresentedMovieDetail.toggle()
+        } label: {
+            XButton()
+        }
+    }
+    
     var body: some View {
         ZStack {
             NavigationStack {
                 content
+                    .blur(radius: viewModel.hasPresentedMovieDetail ? 20 : 0)
+                    .alert(viewModel.errorMessage ,
+                           isPresented: $viewModel.hasError,
+                           presenting: viewModel.errorMessage
+                    ) { details in
+                    } message: { details in
+                        Text(details)
+                    }
             }
+            
+            if viewModel.hasPresentedMovieDetail {
+                if let movie = viewModel.selectedMovie {
+                    MovieDetailsView(isPresentingCard: $viewModel.hasPresentedMovieDetail,
+                                     movie: movie)
+                        .overlay(crossOverlay, alignment: .topTrailing)
+                }
+            }
+
         }
         .background(.white)
     }
@@ -42,9 +67,14 @@ struct SearchMovies: View {
     private func loadedView() -> some View {
         List(viewModel.movies) { movie in
             MovieCell(movie: movie)
-                .listRowSeparator(.hidden)
+                .listRowSeparator(.automatic)
+                .onTapGesture {
+                    viewModel.hasPresentedMovieDetail.toggle()
+                    viewModel.selectedMovie = movie
+                }
         }
         .listStyle(.plain)
+        .disabled(viewModel.hasPresentedMovieDetail)
     }
 }
 
