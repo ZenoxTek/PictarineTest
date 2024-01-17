@@ -42,7 +42,11 @@ struct SearchMovies: View {
             }
 
         }
-        .background(.white)
+        .onTapGesture {
+            // Dismiss the keyboard when tapping outside of the TextField
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), 
+                                            to: nil, from: nil, for: nil)
+        }
     }
     
     @ViewBuilder private var content: some View {
